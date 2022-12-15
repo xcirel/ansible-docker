@@ -1,8 +1,8 @@
-Script para Ansible com o intuito de inslatar o Docker (Linux Ubuntu)
+Script para Ansible de como inslatar o Docker no Linux Ubuntu
 
 # Estrutura/processos
-- Atualizar o apt 
-- Instalar pacotes para permitir que o apt use um repositório por HTTPS
+- Atualizar o APT 
+- Instalar pacotes para permitir que o APT use um repositório por HTTPS
 - Adicionar o Docker GPG oficial 
 - Adicionar o repositório Docker no APT sources
 - Certificar de instalar os pacotes a partir do repositório do Docker em vez do repositório padrão do Ubuntu
@@ -13,12 +13,12 @@ Script para Ansible com o intuito de inslatar o Docker (Linux Ubuntu)
 
 1. Vamos atualizar a lista de pacotes:
 ```sh
-sudo apt update
+sudo apt-get update
 ```
 
-2. Em seguida, instalar alguns pacotes de pré-requisito que permitem que o apt use pacotes por HTTPS:
+2. Em seguida, instalar alguns pacotes de pré-requisito que permitem que o apt-get use pacotes por HTTPS:
 ```sh
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common 
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common 
 ```
 
  3. Agora, vamos adicionar a chave GPG do repositório oficial do Docker ao seu sistema:
@@ -48,5 +48,5 @@ docker-ce:
 
 6. Finalmente, vamos instalar o Docker:
 ```sh
-sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
