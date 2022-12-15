@@ -48,5 +48,5 @@ docker-ce:
 
 6. Finalmente, vamos instalar o Docker:
 ```sh
-docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
