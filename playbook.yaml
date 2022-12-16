@@ -3,8 +3,9 @@
   remote_user: root
   tasks:
   - name: Install pre-requirements
-    apt:
-      update_cache: yes   
+    ansible.builtin.apt:
+      update_cache: yes
+      cache_valid_time: 3600 
       name: apt-transport-https, ca-certificates, curl, software-properties-common 
       state: present 
   - name: Add the key of Docker oficial repository 

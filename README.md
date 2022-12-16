@@ -9,9 +9,9 @@ Script para Ansible de como inslatar o Docker no Linux Ubuntu
 - Finalmente, vamos instalar o Docker
 
 
-# Vamos iniciar
+# Se fosse fazer manualmente, teria que executar esse passo a passo listado abaixo em cada máquina
 
-1. Vamos atualizar a lista de pacotes:
+1. Atualizar a lista de pacotes:
 ```sh
 sudo apt-get update
 ```
@@ -21,21 +21,21 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common 
 ```
 
- 3. Agora, vamos adicionar a chave GPG do repositório oficial do Docker ao seu sistema:
+ 3. Agora, teria que adicionar a chave GPG do repositório oficial do Docker ao seu sistema:
 ```sh
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
  ```
 
-4. Adicionar o repositório Docker no APT sources:
+4. Depois adicionar o repositório Docker no APT sources:
 ```sh
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 ```
 
-5. Vamor garantir que a instalação ocorra a partir do repositório do Docker:
+5. E ainda, garantir que a instalação ocorra a partir do repositório do Docker:
 ```sh
 apt-cache policy docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
-Você verá uma saída como esta, embora o número da versão do Docker possa ser diferente:
+Você veria uma saída como essa, embora o número da versão do Docker poderia ser diferente:
 
 ```sh
 docker-ce:
@@ -46,7 +46,14 @@ docker-ce:
         500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
 ```
 
-6. Finalmente, vamos instalar o Docker:
+6. Finalmente, iria nessa etapa fazer a inatalção do Docker:
 ```sh
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
+
+# Mas graças ao Ansible, uma vez que você tem a sua máquina funcionando e acesso a ela através do serviço SSH:
+
+Após inserir os IP's dos seus hosts no arquivos hosts, basta executar o comando abaixo:
+```sh
+ansible-playbook -i hosts playbook.yaml
 ```
