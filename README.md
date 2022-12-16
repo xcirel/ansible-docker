@@ -9,7 +9,7 @@
 - Finalmente, vamos instalar o Docker
 
 
-* Se fosse fazer manualmente, teria que executar esse passo a passo listado abaixo em cada máquina
+### Se fosse fazer manualmente, teria que executar esse passo a passo listado abaixo em cada máquina
 
 1. Atualizar a lista de pacotes:
 ```sh
