@@ -1,0 +1,21 @@
+- name: Install Docker
+  hosts: ubuntu
+  remote_user: root
+  tasks:
+  - name: Install pre-requirements
+    apt:
+      update_cache: yes   
+      name: apt-transport-https, ca-certificates, curl, software-properties-common 
+      state: present 
+  - name: Add the key of Docker oficial repository 
+    ansible.builtin.apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+  - name: Add specified Docker repository into sources list
+    ansible.builtin.apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu focal stable
+      state: present
+  - name: Install Docker
+    ansible.builtin.apt:
+      name: docker-ce, docker-ce-cli, containerd.io, docker-compose-plugin
+      state: present
