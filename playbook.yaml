@@ -5,7 +5,6 @@
   - name: Install pre-requirements
     ansible.builtin.apt:
       update_cache: yes
-      cache_valid_time: 3600 
       name: apt-transport-https, ca-certificates, curl, software-properties-common 
       state: present 
   - name: Add the key of Docker oficial repository 
@@ -19,4 +18,4 @@
   - name: Install Docker
     ansible.builtin.apt:
       name: docker-ce, docker-ce-cli, containerd.io, docker-compose-plugin
-      state: present
+      state: present      
