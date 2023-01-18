@@ -1,6 +1,6 @@
-# Script para Ansible de como inslatar o Docker no Linux Ubuntu
+## Script para Ansible de como inslatar o Docker no Linux Ubuntu
 
-## Estrutura/processos
+### Estrutura/processos
 - Atualizar o APT 
 - Instalar pacotes para permitir que o APT use um repositório por HTTPS
 - Adicionar o Docker GPG oficial 
@@ -9,7 +9,7 @@
 - Finalmente, vamos instalar o Docker
 
 
-### Se fosse fazer manualmente, teria que executar esse passo a passo listado abaixo em cada máquina
+#### Se fosse fazer manualmente, teria que executar esse passo a passo listado abaixo em cada máquina
 
 1. Atualizar a lista de pacotes:
 ```sh
@@ -51,9 +51,19 @@ docker-ce:
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 
-## Mas graças ao Ansible, uma vez que você tem a sua máquina funcionando e acesso a ela através do serviço SSH:
+7. Adicionar o usuário ubuntu ao grupo docker
+```sh
+sudo usermod -aG docker ubuntu
+```
 
-Após inserir os IP's dos seus hosts no arquivos hosts, basta executar o comando abaixo:
+
+
+
+### Mas graças ao Ansible, uma vez que você tem a sua máquina funcionando e acesso a ela através do serviço SSH:
+
+Após inserir os IP's dos seus hosts no arquivo hosts, basta executar o comando abaixo:
 ```sh
 ansible-playbook -i hosts playbook.yaml
 ```
+
+No final, executamos um container (Nginx) de teste :)

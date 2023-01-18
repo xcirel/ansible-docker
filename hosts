@@ -1,6 +1,6 @@
 [ubuntu]
-137.184.19.73
+137.124.19.23
 
 [ubuntu:vars]
+ansible_user=ubuntu
 ansible_ssh_private_key_file=~/.ssh/id_rsa
-ansible_user=root
