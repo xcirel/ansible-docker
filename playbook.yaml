@@ -5,6 +5,12 @@
   vars:
     container_name: nginx
   tasks:
+  - name: Get Ubuntu codename
+    command: lsb_release -c
+    register: ubuntu_codename
+  - name: Print Ubuntu codename
+    debug:
+      msg: "{{ ubuntu_codename.stdout_lines[0].split()[1] | trim }}"  
   - name: Update package manager
     package:
       name: python3-apt
@@ -20,7 +26,7 @@
       state: present        
   - name: Add specified Docker repository into sources list
     ansible.builtin.apt_repository:
-      repo: deb https://download.docker.com/linux/ubuntu focal stable
+      repo: deb https://download.docker.com/linux/ubuntu {{ ubuntu_codename.stdout_lines[0].split()[1] | trim }} stable
       state: present
   - name: Install Docker
     apt:
