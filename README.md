@@ -59,11 +59,13 @@ sudo usermod -aG docker ubuntu
 
 
 
-### Mas graças ao Ansible, uma vez que você tem a sua máquina funcionando e acesso a ela através do serviço SSH:
+### Mas graças ao Ansible, uma vez que você tem as suas máquinas funcionando e acesso as mesmas através do serviço SSH:
 
-Após inserir os IP's dos seus hosts no arquivo hosts, basta executar o comando abaixo:
+Após inserir os IP's no arquivo hosts, basta executar o comando abaixo:
 ```sh
 ansible-playbook -i hosts playbook.yaml
 ```
+
+:blush: Tudo será feito de maneira automatizada em quantas máquinas precisar.
 
 No final, executamos um container (Nginx) de teste :)
