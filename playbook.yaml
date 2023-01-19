@@ -1,5 +1,5 @@
 ---
-- name: Install and run Nginx using Docker
+- name: Install Docker and run Nginx container
   hosts: all
   become: true
   vars:

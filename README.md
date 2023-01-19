@@ -1,12 +1,15 @@
 ## Script para Ansible de como inslatar o Docker no Linux Ubuntu
 
 ### Estrutura/processos
+- Obter codename e registrar em uma variável
 - Atualizar o APT 
 - Instalar pacotes para permitir que o APT use um repositório por HTTPS
 - Adicionar o Docker GPG oficial 
-- Adicionar o repositório Docker no APT sources
+- Adicionar o repositório Docker no APT sources especificando o codename 
 - Certificar de instalar os pacotes a partir do repositório do Docker em vez do repositório padrão do Ubuntu
 - Finalmente, vamos instalar o Docker
+- Adicionar o usuário ubuntu no grupo docker
+- Criar um container Nginx para teste
 
 
 #### Se fosse fazer manualmente, teria que executar esse passo a passo listado abaixo em cada máquina
@@ -59,13 +62,14 @@ sudo usermod -aG docker ubuntu
 
 
 
-### Mas graças ao Ansible, uma vez que você tem as suas máquinas funcionando e acesso as mesmas através do serviço SSH:
+### Mas graças ao Ansible, uma vez que você tem as suas máquinas funcionando e acesso as mesmas através do serviço SSH basta seguir as instruções abaixo
 
-Após inserir os IP's no arquivo hosts, basta executar o comando abaixo:
+1. Insira os IP's das suas máquinas no arquivo hosts
+2. Execute o comando abaixo
 ```sh
 ansible-playbook -i hosts playbook.yaml
 ```
 
-:blush: Tudo será feito de maneira automatizada em quantas máquinas precisar.
+:blush: Tudo será feito de maneira automatizada e em quantas máquinas precisar.
 
-No final, executamos um container (Nginx) de teste :)
+Observações: neste modelo, a autenticação no serviço SSH ocorre utilizando o método por chaves que ficam armazenados na sua pasta ~/.ssh/
