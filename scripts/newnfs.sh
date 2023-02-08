@@ -7,7 +7,7 @@ nfsvol=/mnt/nfsvol/lv01/$nome
 mkdir $nfsvol
 rede="172.0.0.0/16(rw,sync,no_root_squash,no_sub_tree_check)";
 echo $nfsvol $rede >> /etc/exports
-exports -a 
+exportfs -a 
 systemctl restart nfs-kernel-server
 echo "Volume criado"
 echo "Criação do volume finalizada"
