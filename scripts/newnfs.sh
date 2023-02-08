@@ -5,7 +5,7 @@ read nome;
 # Volume que será criado
 nfsvol=/mnt/nfsvol/lv01/$nome
 mkdir $nfsvol
-rede="172.0.0.0/16(rw,sync,no_root_squash,no_sub_tree_check)";
+rede="172.0.0.0/16(rw,sync,no_root_squash,no_subtree_check)";
 echo $nfsvol $rede >> /etc/exports
 exportfs -a 
 systemctl restart nfs-kernel-server
