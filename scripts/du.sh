@@ -1,3 +1,4 @@
 #!/bin/bash
-echo "Volumes"
+echo "Volume"
 du -sh /mnt/nfsvol/lv01/
+# --- 
