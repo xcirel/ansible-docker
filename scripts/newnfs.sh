@@ -3,7 +3,7 @@ echo "Insira o nome do volume"
 read nome;
 
 # Volume que será criado
-nfsvol=/mnt/nfs-vol/$nome
+nfsvol=/mnt/nfsvol/$nome
 mkdir $nfsvol
 rede="172.0.0.0/16(rw,sync,no_root_squash,no_sub_tree_check)";
 echo $nfsvol $rede >> /etc /exports
