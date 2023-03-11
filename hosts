@@ -1,5 +1,5 @@
 [ubuntu]
-137.124.19.23
+17.124.19.23
 
 [ubuntu:vars]
 ansible_user=ubuntu
