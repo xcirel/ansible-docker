@@ -30,7 +30,7 @@
       state: present
   - name: Install Docker
     apt:
-      name: docker-ce, docker-ce-cli, containerd.io, docker-compose-plugin
+      name: docker-ce, docker-ce-cli, docker-compose, containerd.io, docker-compose-plugin
       state: latest
   - name: Start Docker service
     service:
@@ -40,6 +40,4 @@
     user:
       name: ubuntu
       groups: docker
-      append: true    
-  - name: Run Nginx container
-    command: docker run --name "{{ container_name }}" -d -p 80:80 nginx
+      append: true
