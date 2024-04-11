@@ -70,6 +70,6 @@ sudo usermod -aG docker ubuntu
 ansible-playbook -i hosts playbook.yaml
 ```
 
-:blush: Tudo será feito de maneira automatizada e em quantas máquinas precisar.
+Tudo será feito de maneira automatizada e em quantas máquinas precisar.
 
 Observações: neste modelo, a autenticação no serviço SSH ocorre utilizando o método por chaves que ficam armazenados na sua pasta ~/.ssh/
